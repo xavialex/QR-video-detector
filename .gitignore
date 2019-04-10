@@ -1,0 +1,11 @@
+# Compiled Python
+*.pyc
+
+# JetBrains IDEs
+.idea
+
+# Ignore weights
+weights
+
+# Prediction images
+code/prediction_images
