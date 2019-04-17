@@ -6,15 +6,17 @@ import time
 # Display barcode and QR code location
 def display(img, bbox):
     n = len(bbox)
+    print("{} ... {}".format(n, bbox))
     for j in range(n):
         cv2.line(img, tuple(bbox[j][0]), tuple(bbox[(j+1) % n][0]), (255,0,0), 3)
  
     # Display results
     return img
 
-def detect_qr(img, qrDecoder): 
+def detect_and_decode_qr(img, qrDecoder): 
     # Detect and decode the qrcode
     data, bbox, rectified_image = qrDecoder.detectAndDecode(img)
+    print("{} ... {}".format(len(data), data))
     if len(data)>0:
         print("Decoded Data : {}".format(data))
         display(img, bbox)
@@ -24,9 +26,6 @@ def detect_qr(img, qrDecoder):
         print("QR Code not detected")
         cv2.imshow("Results", img)
         return None, None
-    
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
 
 
 def main():
@@ -35,7 +34,7 @@ def main():
     qrDecoder = cv2.QRCodeDetector()
     while video.isOpened():
         _, frame = video.read()
-        bbox, rectified_image = detect_qr(frame, qrDecoder)
+        bbox, rectified_image = detect_and_decode_qr(frame, qrDecoder)
         if bbox is not None:
             detections_img = display(frame, bbox)
             cv2.imshow("Results", detections_img)
