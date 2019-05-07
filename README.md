@@ -1,6 +1,6 @@
-# Traffic Signals Detection and Recognition
+# QR video detection
 
-Autonomous vehicles are one of the most disruptive projects of out time. In order to achieve full level 5 autonomy level, one of the key components necessary is a proper Artificial Vision module. A key feature of this is the recognition of the traffic signals across the road, which is vital for a proper driving experience. For this purpose, a Deep Learning model trained in the [Tsinghua-Tencent 100K dataset](https://cg.cs.tsinghua.edu.cn/traffic-sign/) is used for inference in several use cases, applying it to a video, a webcam signal, etc.
+Under construction.
 
 ## Dependencies
 
